@@ -25,7 +25,7 @@
 
     <main class="container py-4">
 
-        {{-- Mensajes --}}
+
         @if (session('ok'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ session('ok') }}
@@ -53,7 +53,7 @@
         @endif
 
         <div class="row g-4">
-            {{-- Form Crear Producto --}}
+
             <div class="col-lg-8">
                 <div class="card shadow-sm">
                     <div class="card-header">Crear producto</div>
@@ -107,7 +107,7 @@
                 </div>
             </div>
 
-            {{-- Mini form Crear Categoría --}}
+
             <div class="col-lg-4">
                 <div class="card shadow-sm">
                     <div class="card-header">Crear categoría</div>
@@ -129,7 +129,7 @@
             </div>
         </div>
 
-        {{-- Tabla de Categorías --}}
+
         <div class="card shadow-sm mt-4">
             <div class="card-header">Categorías Registradas</div>
             <div class="table-responsive">
@@ -181,7 +181,7 @@
             </div>
         </div>
 
-        {{-- Tabla de productos --}}
+
         <div class="card shadow-sm mt-4">
             <div class="card-header">Productos</div>
             <div class="table-responsive">
@@ -215,10 +215,10 @@
                             <td>{{ $p->peso ?? '—' }}</td>
                             <td>{{ optional($p->categoria)->tipo_producto ?? '—' }}</td>
                             <td>
-                                <!-- Botón editar: abre modal -->
+
                                 <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#edit-{{ $p->id }}">Editar</button>
 
-                                <!-- Form eliminar -->
+
                                 <form class="d-inline" method="POST" action="{{ route('usuario.productos.destroy', $p) }}" onsubmit="return confirm('¿Eliminar producto?')">
                                     @csrf @method('DELETE')
                                     <button class="btn btn-sm btn-danger">Eliminar</button>
@@ -226,7 +226,7 @@
                             </td>
                         </tr>
 
-                        <!-- Modal editar -->
+
                         <div class="modal fade" id="edit-{{ $p->id }}" tabindex="-1" aria-hidden="true">
                             <div class="modal-dialog modal-lg modal-dialog-scrollable">
                                 <div class="modal-content">

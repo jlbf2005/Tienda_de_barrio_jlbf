@@ -1,7 +1,6 @@
 
 const usuarios = [
     { email: 'admin@tienda.com', password: '12345' },
-    { email: 'usuario@correo.com', password: 'password' }
 ];
 
 window.addEventListener('load', () => {
