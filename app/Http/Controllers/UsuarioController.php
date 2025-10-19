@@ -10,7 +10,7 @@ use Illuminate\Validation\Rule;
 class UsuarioController extends Controller
 {
 
-    private const MIN_ZERO_correcion = 'min:0'; 
+    private const MIN_ZERO = 'min:0';
 
 
     public function index()
@@ -26,7 +26,7 @@ class UsuarioController extends Controller
     {
         $data = $request->validate([
             'tipo_producto' => ['required', 'string', 'max:100'],
-            'pasillo' => ['nullable', 'integer', self::MIN_ZERO_correcion, 'max:65535'],
+            'pasillo' => ['nullable', 'integer', self::MIN_ZERO, 'max:65535'],
         ]);
 
         CategoriaTdg::create($data);
@@ -40,11 +40,11 @@ class UsuarioController extends Controller
         $data = $request->validate([
             'nombre' => ['required', 'string', 'max:150'],
             'descripcion' => ['required', 'string', 'max:255'],
-            'precio' => ['required', 'numeric', self::MIN_ZERO_correcion],
-            'stock' => ['required', 'integer', self::MIN_ZERO_correcion],
+            'precio' => ['required', 'numeric', self::MIN_ZERO],
+            'stock' => ['required', 'integer', self::MIN_ZERO],
             'plu' => ['nullable', 'string', 'max:20', 'unique:productos_tdg,plu'],
             'ean' => ['nullable', 'string', 'max:20', 'unique:productos_tdg,ean'],
-            'peso' => ['nullable', 'numeric', self::MIN_ZERO_correcion],
+            'peso' => ['nullable', 'numeric', self::MIN_ZERO],
             'categoria_id' => ['required', 'exists:categorias_tdg,id'],
         ]);
 
@@ -59,11 +59,11 @@ class UsuarioController extends Controller
         $data = $request->validate([
             'nombre' => ['required', 'string', 'max:150'],
             'descripcion' => ['required', 'string', 'max:255'],
-            'precio' => ['required', 'numeric', self::MIN_ZERO_correcion],
-            'stock' => ['required', 'integer', self::MIN_ZERO_correcion],
+            'precio' => ['required', 'numeric', self::MIN_ZERO],
+            'stock' => ['required', 'integer', self::MIN_ZERO],
             'plu' => ['nullable', 'string', 'max:20', Rule::unique('productos_tdg', 'plu')->ignore($producto->id)],
             'ean' => ['nullable', 'string', 'max:20', Rule::unique('productos_tdg', 'ean')->ignore($producto->id)],
-            'peso' => ['nullable', 'numeric', self::MIN_ZERO_correcion],
+            'peso' => ['nullable', 'numeric', self::MIN_ZERO],
             'categoria_id' => ['required', 'exists:categorias_tdg,id'],
         ]);
 
