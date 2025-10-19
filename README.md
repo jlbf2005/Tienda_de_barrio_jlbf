@@ -13,5 +13,5 @@ Proyecto formativo orientado a cualquier **tienda de barrio** que necesite regis
 - Campos típicos: nombre, descripción, precio, stock, códigos (PLU/EAN).
 - Búsqueda/filtrado por nombre o código.
 - Validaciones básicas y mensajes de estado.
-
+a
 
