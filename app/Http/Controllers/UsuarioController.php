@@ -11,6 +11,7 @@ class UsuarioController extends Controller
 {
 
     private const MIN_ZERO = 'min:0';
+    private const MAX_TWENTY = 'max:20';
 
 
     public function index()
@@ -42,8 +43,8 @@ class UsuarioController extends Controller
             'descripcion' => ['required', 'string', 'max:255'],
             'precio' => ['required', 'numeric', self::MIN_ZERO],
             'stock' => ['required', 'integer', self::MIN_ZERO],
-            'plu' => ['nullable', 'string', 'max:20', 'unique:productos_tdg,plu'],
-            'ean' => ['nullable', 'string', 'max:20', 'unique:productos_tdg,ean'],
+            'plu' => ['nullable', 'string', self::MAX_TWENTY, 'unique:productos_tdg,plu'],
+            'ean' => ['nullable', 'string', self::MAX_TWENTY, 'unique:productos_tdg,ean'],
             'peso' => ['nullable', 'numeric', self::MIN_ZERO],
             'categoria_id' => ['required', 'exists:categorias_tdg,id'],
         ]);
@@ -61,8 +62,8 @@ class UsuarioController extends Controller
             'descripcion' => ['required', 'string', 'max:255'],
             'precio' => ['required', 'numeric', self::MIN_ZERO],
             'stock' => ['required', 'integer', self::MIN_ZERO],
-            'plu' => ['nullable', 'string', 'max:20', Rule::unique('productos_tdg', 'plu')->ignore($producto->id)],
-            'ean' => ['nullable', 'string', 'max:20', Rule::unique('productos_tdg', 'ean')->ignore($producto->id)],
+            'plu' => ['nullable', 'string', self::MAX_TWENTY, Rule::unique('productos_tdg', 'plu')->ignore($producto->id)],
+            'ean' => ['nullable', 'string', self::MAX_TWENTY, Rule::unique('productos_tdg', 'ean')->ignore($producto->id)],
             'peso' => ['nullable', 'numeric', self::MIN_ZERO],
             'categoria_id' => ['required', 'exists:categorias_tdg,id'],
         ]);
