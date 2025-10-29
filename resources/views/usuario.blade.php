@@ -61,9 +61,18 @@
                         <form method="POST" action="{{ route('usuario.productos.store') }}">
                             @csrf
                             <div class="row g-3">
-                                <div class="col-md-6">
-                                    <label class="form-label">Nombre</label>
-                                    <input name="nombre" class="form-control" value="{{ old('nombre') }}" required maxlength="150">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="nombre" class="form-label">Nombre</label>
+                                        <input
+                                            type="text"
+                                            id="nombre"
+                                            name="nombre"
+                                            class="form-control"
+                                            value="{{ old('nombre') }}"
+                                            required
+                                            maxlength="150">
+                                    </div>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label">Descripción</label>
